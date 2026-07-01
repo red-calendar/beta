@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>개인정보처리방침 — RED Calendar</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --red: #E53935;
+      --red-dark: #B71C1C;
+      --red-light: #EF9A9A;
+      --bg: #0D0D0D;
+      --surface: #141414;
+      --surface2: #1E1E1E;
+      --border: #222;
+      --text: #F5F5F5;
+      --muted: #888;
+      --code-bg: #1a1a1a;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a { color: var(--red-light); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.1rem 2.5rem;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      background: rgba(13,13,13,0.92);
+      backdrop-filter: blur(10px);
+      z-index: 100;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .logo span { color: var(--red); }
+
+    .nav-links {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.875rem;
+      padding: 0.4rem 0.9rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: color 0.15s, background 0.15s;
+    }
+
+    .nav-links a:hover { color: var(--text); background: var(--surface2); }
+    .nav-links a.active { color: var(--red-light); }
+
+    /* Page header */
+    .page-header {
+      padding: 3.5rem 2rem 2.5rem;
+      max-width: 760px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .page-icon { font-size: 3rem; margin-bottom: 1rem; display: block; }
+
+    .page-header h1 {
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.6rem;
+    }
+
+    .last-updated {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    .intro-text {
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.75;
+      padding: 1.25rem 1.5rem;
+      background: var(--surface);
+      border-left: 3px solid var(--red);
+      border-radius: 0 10px 10px 0;
+    }
+
+    /* Content */
+    .content {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 2rem 5rem;
+      width: 100%;
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 2.5rem 0;
+    }
+
+    .chapter {
+      margin-bottom: 2.5rem;
+    }
+
+    .chapter h2 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 1rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .chapter p {
+      font-size: 0.9rem;
+      color: #bbb;
+      line-height: 1.8;
+      margin-bottom: 0.75rem;
+    }
+
+    .chapter ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .chapter ul li {
+      font-size: 0.9rem;
+      color: #bbb;
+      line-height: 1.7;
+      padding-left: 1.2rem;
+      position: relative;
+    }
+
+    .chapter ul li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--red);
+    }
+
+    .chapter ul ul {
+      margin-top: 0.4rem;
+      padding-left: 1.2rem;
+    }
+
+    .chapter ul ul li::before { color: var(--muted); content: '◦'; }
+
+    code {
+      background: var(--code-bg);
+      border: 1px solid #2a2a2a;
+      color: var(--red-light);
+      padding: 0.1em 0.45em;
+      border-radius: 4px;
+      font-family: 'Consolas', 'Courier New', monospace;
+      font-size: 0.85em;
+    }
+
+    footer {
+      margin-top: auto;
+      border-top: 1px solid var(--border);
+      padding: 1.75rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    footer p { color: var(--muted); font-size: 0.82rem; }
+
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a { color: var(--muted); font-size: 0.82rem; text-decoration: none; transition: color 0.15s; }
+    .footer-links a:hover { color: var(--text); }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="logo">
+      <span>📅</span>
+      <span style="color:var(--text)"><span>RED</span> Calendar</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">홈</a>
+      <a href="privacy.html" class="active">개인정보처리방침</a>
+      <a href="terms.html">서비스 약관</a>
+    </div>
+  </nav>
+
+  <div class="page-header">
+    <span class="page-icon">🔒</span>
+    <h1>개인정보처리방침</h1>
+    <p class="last-updated">최종 수정일: 2026년 7월 1일</p>
+    <p class="intro-text">
+      RED Calendar(이하 "서비스")는 이용자의 개인정보를 소중히 여기며, 관련 법령을 준수합니다.
+      본 서비스는 Electron 기반 데스크톱 앱으로, Google 캘린더 연동과 로컬 데이터 저장 기능을 제공합니다.
+    </p>
+  </div>
+
+  <div class="content">
+    <hr class="divider" />
+
+    <div class="chapter">
+      <h2>1. 수집하는 개인정보 항목</h2>
+      <p>서비스는 Google OAuth를 통해 다음 정보를 수집합니다.</p>
+      <ul>
+        <li>Google 계정 이메일 주소</li>
+        <li>프로필 이름 및 사진</li>
+        <li>Google 캘린더 데이터 (일정 읽기/쓰기)</li>
+      </ul>
+      <p style="margin-top:1rem;">
+        메모 및 To-do 데이터는 서버에 전송되지 않으며, 사용자의 기기 로컬 저장소
+        (<code>userData/scheduler-db.json</code>)에만 저장됩니다.
+      </p>
+    </div>
+
+    <div class="chapter">
+      <h2>2. 개인정보 수집 및 이용 목적</h2>
+      <ul>
+        <li>서비스 로그인 및 계정 식별</li>
+        <li>Google 캘린더 일정 동기화 및 직접 편집</li>
+        <li>서비스 개선 및 오류 대응</li>
+      </ul>
+    </div>
+
+    <div class="chapter">
+      <h2>3. 개인정보 저장 방식 및 보안</h2>
+      <ul>
+        <li>
+          <strong>OAuth 토큰:</strong> Electron <code>safeStorage</code> API를 사용해 암호화하여 저장됩니다.
+          <ul>
+            <li>Windows: DPAPI</li>
+            <li>macOS: Keychain</li>
+            <li>Linux: libsecret 등</li>
+            <li>암호화를 지원하지 않는 환경에서는 평문 폴백으로 저장될 수 있습니다.</li>
+          </ul>
+        </li>
+        <li><strong>메모/To-do 등 일반 데이터:</strong> 사용자 기기의 <code>userData</code> 경로에 JSON 파일로 저장됩니다.</li>
+        <li>OAuth 클라이언트 시크릿은 앱 소스코드에 포함되지 않으며, 사용자 환경에서 관리됩니다.</li>
+      </ul>
+    </div>
+
+    <div class="chapter">
+      <h2>4. 개인정보 보유 및 이용 기간</h2>
+      <p>
+        이용자가 Google 계정 연동을 해제하거나 앱을 삭제할 경우, 기기에 저장된 모든 데이터(토큰, 로컬 DB)는
+        함께 삭제됩니다. 서버에는 개인정보가 보관되지 않습니다.
+      </p>
+    </div>
+
+    <div class="chapter">
+      <h2>5. 개인정보의 제3자 제공</h2>
+      <p>
+        서비스는 이용자의 동의 없이 개인정보를 제3자에게 제공하지 않습니다.
+        Google Calendar API 사용은 <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google의 개인정보처리방침</a>을 따릅니다.
+      </p>
+    </div>
+
+    <div class="chapter">
+      <h2>6. 이용자의 권리</h2>
+      <p>
+        이용자는 언제든지 앱 내 설정에서 Google 계정 연동을 해제하고,
+        기기에 저장된 데이터를 직접 삭제할 수 있습니다.
+      </p>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 RED Calendar · re3dh</p>
+    <div class="footer-links">
+      <a href="privacy.html">개인정보처리방침</a>
+      <a href="terms.html">서비스 약관</a>
+    </div>
+  </footer>
+
+</body>
+</html>
